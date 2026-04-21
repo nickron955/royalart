@@ -5,9 +5,9 @@ import realtorImg from "@/assets/realtor-staging.jpg";
 export const Route = createFileRoute("/realtors")({
   head: () => ({
     meta: [
-      { title: "Art & Frame Rentals for Realtors | Maison.Art" },
+      { title: "Art & Frame Rentals for Realtors | Royal Art" },
       { name: "description", content: "Realtor staging art rental — premium paintings and frames to make listings sell faster and for more." },
-      { property: "og:title", content: "Frame Rentals for Realtors — Maison.Art" },
+      { property: "og:title", content: "Frame Rentals for Realtors — Royal Art" },
       { property: "og:description", content: "Stage homes with premium art. Sell faster, sell for more." },
       { property: "og:image", content: realtorImg },
     ],

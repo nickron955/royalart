@@ -32,10 +32,10 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Maison.Art — Paintings, Wall Art & Frame Rentals" },
+      { title: "Royal Art — Paintings, Wall Art & Frame Rentals" },
       { name: "description", content: "Premium paintings, home décor and frame rentals for homes, businesses and realtor staging across Canada." },
-      { property: "og:title", content: "Maison.Art — Paintings, Wall Art & Frame Rentals" },
-      { name: "twitter:title", content: "Maison.Art — Paintings, Wall Art & Frame Rentals" },
+      { property: "og:title", content: "Royal Art — Paintings, Wall Art & Frame Rentals" },
+      { name: "twitter:title", content: "Royal Art — Paintings, Wall Art & Frame Rentals" },
       { property: "og:description", content: "Premium paintings, home décor and frame rentals for homes, businesses and realtor staging across Canada." },
       { name: "twitter:description", content: "Premium paintings, home décor and frame rentals for homes, businesses and realtor staging across Canada." },
       { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/246ac903-52db-4dc5-84ad-d6d7a7538baa/id-preview-4c9e649f--8e646e9c-da8d-42fb-aa79-4ed5c3f175ff.lovable.app-1776741097522.png" },

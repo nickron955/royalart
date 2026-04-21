@@ -6,9 +6,9 @@ import { Mail, Facebook, MessageCircle, Check } from "lucide-react";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact Maison.Art — Free Décor Advice & Inquiries" },
+      { title: "Contact Royal Art — Free Décor Advice & Inquiries" },
       { name: "description", content: "Message us for paintings, frame rentals, and free décor advice. Email bestproduct2299@gmail.com." },
-      { property: "og:title", content: "Contact — Maison.Art" },
+      { property: "og:title", content: "Contact — Royal Art" },
       { property: "og:description", content: "Free décor advice. Reach out anytime." },
     ],
   }),
@@ -54,7 +54,7 @@ function ContactPage() {
     const body = encodeURIComponent(
       `Name: ${data.name}\nEmail: ${data.email}\nTopic: ${data.topic}\n\n${data.message}`
     );
-    window.location.href = `mailto:bestproduct2299@gmail.com?subject=${encodeURIComponent("Inquiry from Maison.Art — " + data.topic)}&body=${body}`;
+    window.location.href = `mailto:bestproduct2299@gmail.com?subject=${encodeURIComponent("Inquiry from Royal Art — " + data.topic)}&body=${body}`;
     setSubmitted(true);
     setSubmitting(false);
   };

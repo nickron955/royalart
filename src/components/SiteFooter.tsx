@@ -7,7 +7,7 @@ export function SiteFooter() {
       <div className="mx-auto grid max-w-7xl gap-12 px-6 py-16 md:grid-cols-4 lg:px-10">
         <div className="md:col-span-2">
           <div className="font-display text-2xl font-semibold">
-            Maison<span className="text-accent">.</span>Art
+            Royal<span className="text-accent">.</span>Art
           </div>
           <p className="mt-4 max-w-sm text-sm text-muted-foreground">
             Premium paintings, wall art and frame rentals — for homes, businesses and realtors who want spaces that feel unforgettable.
@@ -45,7 +45,7 @@ export function SiteFooter() {
         </div>
       </div>
       <div className="border-t border-border py-6 text-center text-xs text-muted-foreground">
-        © {new Date().getFullYear()} Maison.Art — Crafted with care.
+        © {new Date().getFullYear()} Royal Art — Crafted with care.
       </div>
     </footer>
   );
