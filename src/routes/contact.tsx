@@ -23,20 +23,40 @@ const schema = z.object({
 });
 
 type FormData = z.infer<typeof schema>;
+type Errors = Partial<Record<keyof FormData, string>>;
 
 function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
-  const {
-    register, handleSubmit, formState: { errors, isSubmitting },
-  } = useForm<FormData>({ resolver: zodResolver(schema), defaultValues: { topic: "Buy artwork" } });
+  const [submitting, setSubmitting] = useState(false);
+  const [values, setValues] = useState<FormData>({
+    name: "", email: "", topic: "Buy artwork", message: "",
+  });
+  const [errors, setErrors] = useState<Errors>({});
 
-  const onSubmit = async (data: FormData) => {
-    // Compose mailto fallback so the message gets sent without a backend
+  const update = <K extends keyof FormData>(k: K, v: FormData[K]) =>
+    setValues((s) => ({ ...s, [k]: v }));
+
+  const onSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const result = schema.safeParse(values);
+    if (!result.success) {
+      const fieldErrors: Errors = {};
+      for (const issue of result.error.issues) {
+        const key = issue.path[0] as keyof FormData;
+        if (key && !fieldErrors[key]) fieldErrors[key] = issue.message;
+      }
+      setErrors(fieldErrors);
+      return;
+    }
+    setErrors({});
+    setSubmitting(true);
+    const data = result.data;
     const body = encodeURIComponent(
       `Name: ${data.name}\nEmail: ${data.email}\nTopic: ${data.topic}\n\n${data.message}`
     );
     window.location.href = `mailto:bestproduct2299@gmail.com?subject=${encodeURIComponent("Inquiry from Maison.Art — " + data.topic)}&body=${body}`;
     setSubmitted(true);
+    setSubmitting(false);
   };
 
   return (
@@ -85,27 +105,27 @@ function ContactPage() {
               <p className="mt-2 text-sm text-muted-foreground">We just opened your mail app with your message pre-filled. Hit send and we'll be in touch shortly.</p>
             </div>
           ) : (
-            <form onSubmit={handleSubmit(onSubmit)} className="grid gap-5 rounded-2xl border border-border bg-card p-8 md:p-10">
-              <Field label="Your name" error={errors.name?.message}>
-                <input {...register("name")} className="input" placeholder="Jane Doe" />
+            <form onSubmit={onSubmit} className="grid gap-5 rounded-2xl border border-border bg-card p-8 md:p-10">
+              <Field label="Your name" error={errors.name}>
+                <input value={values.name} onChange={(e) => update("name", e.target.value)} className="input" placeholder="Jane Doe" />
               </Field>
-              <Field label="Email" error={errors.email?.message}>
-                <input type="email" {...register("email")} className="input" placeholder="you@email.com" />
+              <Field label="Email" error={errors.email}>
+                <input type="email" value={values.email} onChange={(e) => update("email", e.target.value)} className="input" placeholder="you@email.com" />
               </Field>
-              <Field label="What's this about?" error={errors.topic?.message}>
-                <select {...register("topic")} className="input">
+              <Field label="What's this about?" error={errors.topic}>
+                <select value={values.topic} onChange={(e) => update("topic", e.target.value as FormData["topic"])} className="input">
                   <option>Buy artwork</option>
                   <option>Frame rental (realtor)</option>
                   <option>Business décor</option>
                   <option>Free advice</option>
                 </select>
               </Field>
-              <Field label="Message" error={errors.message?.message}>
-                <textarea {...register("message")} rows={5} className="input resize-none" placeholder="Tell us about your space, dimensions, style preferences..." />
+              <Field label="Message" error={errors.message}>
+                <textarea value={values.message} onChange={(e) => update("message", e.target.value)} rows={5} className="input resize-none" placeholder="Tell us about your space, dimensions, style preferences..." />
               </Field>
               <button
                 type="submit"
-                disabled={isSubmitting}
+                disabled={submitting}
                 className="mt-2 inline-flex items-center justify-center rounded-full bg-foreground px-6 py-3 text-sm font-medium text-background transition-transform hover:-translate-y-0.5 disabled:opacity-60"
               >
                 Send Message
