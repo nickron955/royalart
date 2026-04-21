@@ -5,9 +5,9 @@ import businessImg from "@/assets/business-space.jpg";
 export const Route = createFileRoute("/business")({
   head: () => ({
     meta: [
-      { title: "Upgrade Your Business Space | Maison.Art" },
+      { title: "Upgrade Your Business Space | Royal Art" },
       { name: "description", content: "Modern paintings and décor for offices, salons, restaurants and retail. Premium feel, better customer experience." },
-      { property: "og:title", content: "Art for Businesses — Maison.Art" },
+      { property: "og:title", content: "Art for Businesses — Royal Art" },
       { property: "og:description", content: "Upgrade your space and elevate your brand." },
       { property: "og:image", content: businessImg },
     ],

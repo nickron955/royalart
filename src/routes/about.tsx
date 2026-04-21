@@ -4,9 +4,9 @@ import aboutImg from "@/assets/about-studio.jpg";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About Maison.Art — Passion for Art, Made Accessible" },
+      { title: "About Royal Art — Passion for Art, Made Accessible" },
       { name: "description", content: "We help homeowners, realtors and businesses transform their spaces with affordable, stylish art." },
-      { property: "og:title", content: "About — Maison.Art" },
+      { property: "og:title", content: "About — Royal Art" },
       { property: "og:description", content: "Passion for art. Stylish, accessible décor." },
       { property: "og:image", content: aboutImg },
     ],
@@ -26,7 +26,7 @@ function AboutPage() {
         </div>
         <div className="space-y-6 text-lg text-muted-foreground text-pretty lg:col-span-7 lg:pt-6">
           <p>
-            Maison.Art started with a simple belief: a beautiful space can change how you feel every single day. What began as a small collection of paintings shared on Facebook Marketplace grew into a curated gallery serving homeowners, realtors and businesses across Canada.
+            Royal Art started with a simple belief: a beautiful space can change how you feel every single day. What began as a small collection of paintings shared on Facebook Marketplace grew into a curated gallery serving homeowners, realtors and businesses across Canada.
           </p>
           <p>
             We work with independent artists to bring you original paintings, framed prints and décor pieces that don't feel mass-produced. Then we make them accessible — through fair pricing, frame rentals, and free décor advice anytime you need it.

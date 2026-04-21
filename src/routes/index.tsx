@@ -7,9 +7,9 @@ import { artworks } from "@/data/artworks";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Maison.Art — Transform Your Space with Stunning Art & Décor" },
+      { title: "Royal Art — Transform Your Space with Stunning Art & Décor" },
       { name: "description", content: "Premium paintings, home décor and frame rentals for homes, businesses and realtors. Wall art Canada, home décor, realtor staging." },
-      { property: "og:title", content: "Maison.Art — Stunning Art & Décor" },
+      { property: "og:title", content: "Royal Art — Stunning Art & Décor" },
       { property: "og:description", content: "Paintings, wall art & frame rentals to transform any space." },
     ],
   }),
