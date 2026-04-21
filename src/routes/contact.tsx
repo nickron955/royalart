@@ -1,8 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { z } from "zod";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
 import { Mail, Facebook, MessageCircle, Check } from "lucide-react";
 
 export const Route = createFileRoute("/contact")({
